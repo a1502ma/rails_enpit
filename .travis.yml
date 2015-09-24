@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+- 2.2.2
+deploy:
+  provider: heroku
+  api_key:
+    secure: Sufx8H5PCNbH5XMLrGEfW1D60t3MBFW8ILA8gKDBCWmjTNISFJpso76qX3+JWw/wtUf7OzKffZVwqHidbhiWmfFeY2nFlMXtq1gfxClPGieUtFiB47KdxCSxijocoQbCKeJvSXAclXcoW7gipgMKLUcSvYLOGo1kGkVV3prSEsagMITvqMdREn09RXncXugVkfu0bBdYp5j2tBEdJD3r8uhRePAA8zedNsRME6fcGP79Qqe4qahGJ5/Jl6xq4Ii21aBmj6R8Vxh/pYSi8mcV8bKINvDA5o8nEwSh8Mev/sGC9vyBf8P2obH0l2Od1Gd5WwEViamR05xKWC4xywIwGwJwknHESPoVq/+xq9j1tZs/aU2IhkInUXsMVdzzuHYAanGjwNGV3VhNYmIrFNy872EVIyNHuEh5uWstfKP3vDRCl0quWv1ro+4X1aTBnL2TTO1YZ+EEnz+liVBJRudoUkezs2xOUoPFBKfyL/0XSvnhjCc6q4wbnC1WkbUm6HHywL207J1OzJBIsas4HC5l8FcmQm+vunkh127chspHIMPxAzdCCsxlqGqRvrnzgnjvXQYLIgcRITbFFPCDNIyQI6uxd3UvjxSm3jDWjXxsxTbuNV286wiwVhoqVvCIFQ+RswJLqkCuljcf192gz5dQ2vMERUqEoEifnWZAnWdC9Pk=
+  app: thawing-gorge-3106
+  on:
+    repo: a1502ma/rails_enpit
+    branch: fixture
+addons:
+  postgresql: "9.3"
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
