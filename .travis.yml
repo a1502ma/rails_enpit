@@ -8,7 +8,7 @@ deploy:
   app: thawing-gorge-3106
   on:
     repo: a1502ma/rails_enpit
-    branch: fixture
+    branch: master
 addons:
   postgresql: "9.3"
 before_script:
